@@ -116,7 +116,9 @@ def send_telegram(text):
         "text": text,
         "parse_mode": "HTML"
     }
-    requests.post(url, json=payload, timeout=30)
+    response = requests.post(url, json=payload, timeout=30)
+    print("Status code:", response.status_code)
+    print("Réponse Telegram:", response.text)
 
 def main():
     results = []
